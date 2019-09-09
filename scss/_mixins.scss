@@ -1,0 +1,18 @@
+@mixin prop_converter($args...) {
+    $list: ();
+    $result: '';
+    @if(nth($args, 1) == padding OR nth($args, 1 ) == margin) {
+      @for $i from 2 through length($args) {
+          $result: unquote($result + calculateEm(nth($args, $i)) + em + ' ');
+      }
+      #{nth($args, 1)} : $result;
+    }
+}
+
+@mixin media($point) {
+  @if $point == sp {
+    @media (max-width: 767px) {
+      @content;
+    }
+  }
+}

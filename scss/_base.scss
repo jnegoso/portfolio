@@ -1,0 +1,65 @@
+*,*:before,*:after {
+    box-sizing: border-box;
+}
+html,body {
+    margin: 0;
+    overflow-x: hidden;
+}
+html {
+    font-size: 62.5%;
+    &.modal-active {
+        overflow: hidden;
+        body {
+            overflow: hidden;
+        }
+    }
+}
+body {
+    font-size: 16px;
+    font-family: $font-primary;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    @include prop-converter(padding, 20, 18);
+    z-index: 999;
+}
+
+.nav {
+    display: grid;
+    grid-template-columns: auto 30%;
+    .menu {
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        @include prop-converter(padding, 0,0,5);
+        border-bottom: 3px solid $color-white;
+        li {
+            text-transform: uppercase;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+ul,li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+p,h1,h2,h3 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    &:hover {
+        color: inherit;
+    }
+}

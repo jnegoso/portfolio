@@ -1,0 +1,7 @@
+@function calculateRem($val) {
+    @return $val / $base-font * 1rem;
+}
+
+@function calculateEm($val) {
+    @return $val / 16;
+}
