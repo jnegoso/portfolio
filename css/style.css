@@ -890,7 +890,7 @@ a {
     height: 100%; }
   @media (max-width: 767px) {
     .home__front {
-      height: -webkit-fill-available; } }
+      min-height: -webkit-fill-available; } }
 
 .home__text {
   color: #ffffff;
