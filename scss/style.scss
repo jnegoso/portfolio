@@ -108,7 +108,7 @@
         }
 
         @include media(sp) {
-            min-height: -webkit-fill-available;
+            height: -webkit-fill-available;
         }
     }
     &__text {
