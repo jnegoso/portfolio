@@ -13,6 +13,10 @@ html {
             overflow: hidden;
         }
     }
+
+    @include media(sp) {
+        font-size: 50%;
+    }
 }
 body {
     font-size: 16px;
@@ -26,6 +30,9 @@ body {
     width: 100%;
     @include prop-converter(padding, 20, 18);
     z-index: 999;
+    @include media(sp) {
+        padding: 20px;
+    }
 }
 
 .nav {

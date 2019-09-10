@@ -22,13 +22,18 @@
         <nav class="nav full-width">
             <a href="#"><img src="./images/logo.png" alt=""></a>
             <div class="menu-container">
-                <img src="./images/close.png" class="sp">
                 <ul class="menu clearfix">
                     <li><a href="#top" class="navLinks">home</a></li>
                     <li><a href="#about" class="navLinks">about</a></li>
                     <li><a href="#works" class="navLinks">works</a></li>
                 </ul>
             </div>
+
+            <button class="js-burger hamburger hamburger--elastic sp" type="button">
+                <span class="hamburger-box">
+                  <span class="hamburger-inner"></span>
+                </span>
+            </button>
         </nav>
     </header>
     <div class="wrapper">
@@ -62,30 +67,21 @@
             <div class="home__works-grid">
                 <div class="home__works-item"><div class="overlay"><span>Project 1</span></div><img class="l-full" src="./images/bookcover.jpg" data-src="bookcover"></div>
                 <div class="home__works-item"><div class="overlay"><span>Project 2</span></div><img class="l-full" src="./images/LOGOdesign1.jpg" data-src="LOGOdesign1"></div>
-                <div class="home__works-item"><div class="overlay"><span>Project 3</span></div><img class="l-full" src="./images/mybrochure1.jpg" data-src="mybrochure1"></div>
-                <div class="home__works-item"><div class="overlay"><span>Project 4</span></div><img class="l-full" src="./images/mybrochure12.jpg" data-src="mybrochure12"></div>
+                <div class="home__works-item"><div class="overlay"><span>Project 3</span></div><img class="l-full" src="./images/WebBanner2.jpg" data-src="WebBanner2"></div>
+                <div class="home__works-item"><div class="overlay"><span>Project 4</span></div><img class="l-full" src="./images/mybrochure12.jpg" data-src="mybrochure2"></div>
                 <div class="home__works-item"><div class="overlay"><span>Project 5</span></div><img class="l-full" src="./images/businesscard1.jpg" data-src="businesscard1"></div>
             </div>
         </div>
     </div>
     <footer class="footer">
-        <div class="footer--light">
+        <div class="footer--dark full-width">
             <div class="full-width footer__row">
                 <div class="footer__email">
-                    <p>EMAIL ME AT <span><a href="">negosoj@gmail.com</a></span></p>
+                    <p>EMAIL ME AT <span><a href="mailto:negosoj@gmail.com">negosoj@gmail.com</a></span></p>
                 </div>
                 <div class="footer__credits">
                     <p>© 2019 JIESSEL NEGOSO</p>
                 </div>
-            </div>
-        </div>
-        <div class="footer--dark">
-            <div class="full-width">
-                <ul class="clearfix">
-                    <li><a href="">works</a></li>
-                    <li><a href="">about</a></li>
-                    <li><a href="">resume</a></li>
-                </ul>
             </div>
         </div>
     </footer>
@@ -121,7 +117,13 @@
                     $(this).removeClass('js-modal');
                     $('html').removeClass('modal-active');
                 }
-            })
+            });
+
+            $('.js-burger').click(function() {
+                $(this).toggleClass('is-active');
+                $('.menu-container').toggleClass('active');
+                $(this).toggleClass('blue');
+            });
         });
     </script>
 </body>

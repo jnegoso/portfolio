@@ -4,6 +4,7 @@
 @import './base';
 @import './common';
 @import './modal';
+@import '../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss';
 
 .clearfix {
     &::after {
@@ -16,6 +17,17 @@
 .full-width {
     max-width: 1080px;
     margin: 0 auto;
+    @include media(sp) {
+        padding: 0 20px;
+    }
+}
+
+.blue {
+    &.hamburger.is-active .hamburger-inner {
+       &,&::before,&::after {
+        background-color: $color-blue !important;
+       }
+    }
 }
 
 .menu-container {
@@ -27,6 +39,14 @@
         height: 100%;
         background: white;
         padding: 100px 0;
+        opacity: 1;
+        z-index: -1;
+        transition: .4s all cubic-bezier(.16,.59,.12,.86);
+        transform: translateX(-100%);
+    }
+    &.active {
+        z-index: 2000;
+        transform: translateX(0);
     }
 }
 
@@ -63,7 +83,20 @@
     &--active {
         background-color: rgba(60, 59, 59,0.8);
     }
+    .full-width {
+        padding: 0;
+    }
 }
+
+.hamburger {
+    position: absolute;
+    right: 18px;
+    top: 10px;
+    outline: none;
+    z-index: 2000;
+}
+
+
 
 .home {
     &__front {
@@ -83,6 +116,9 @@
             text-transform: uppercase;
             font-weight: bold;
             font-size: calculateRem(97px);
+        }
+        @include media(sp) {
+            right: 20px;
         }
     }
     &__scroll {
@@ -158,6 +194,11 @@
         grid-template-columns: repeat(3,1fr);
         grid-gap: 25px;
         grid-template-rows: 283px 114px 283px;
+        @include media(sp) {
+            grid-template-columns: 100%;
+            grid-template-rows: unset;
+            grid-auto-rows: 400px;
+        }
     }
     
     &__works-item {
@@ -173,6 +214,16 @@
         &:nth-of-type(5) {
             grid-column: 2/4;
             grid-row: 2/4;
+        }
+
+        @include media(sp) {
+            &:nth-of-type(1) {
+                grid-row: auto;;
+            }
+            &:nth-of-type(5) {
+                grid-column: auto;
+                grid-row: auto;
+            }
         }
         
         img {
@@ -218,11 +269,18 @@
 }
 
 .footer {
-    background-color:$color-grid;
+    //background-color:$color-grid;
+    background-color: $color-black;
     color: $color-white;
     &__row {
-        display: grid;
-        grid-template-columns: 13.6% auto;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        @include prop-converter(padding, 35, 20, 112);
+        @include media(sp) {
+            justify-content: center;
+            padding: 40px 0;
+        }
     }
     &__email {
         span {
@@ -231,28 +289,20 @@
             @include prop-converter(margin, 8, 0, 0);
             @include prop-converter(padding, 11,0 ,0);
         }
+        @include media(sp) {
+            text-align: center;
+        }
     }
     &__credits {
         align-self: center;
         justify-self: end;
-    }
-    &--light{
-        background-color: $color-dark;
-        @include prop-converter(padding, 35, 0, 112);
+        @include media(sp) {
+            text-align: center;
+            flex-basis: 100%;
+            margin-top: 3.5em;
+        }
     }
     &--dark {
         background-color: $color-black;
-        display: grid;
-        @include prop-converter(padding, 14, 0);
-        li {
-            text-transform: uppercase;
-            float: left;
-            &:not(:last-child)::after {
-                content: '•';
-                display: inline-block;
-                margin-left: 18px;
-                margin-right: 20px;
-            }
-        }
     }
 }

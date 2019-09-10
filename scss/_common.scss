@@ -16,8 +16,8 @@
 }
 
 .sp {
-    display: none;
+    display: none !important;
     @include media(sp) {
-        display: inline-block;
+        display: inline-block !important;
     }
 }
