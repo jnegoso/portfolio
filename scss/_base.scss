@@ -16,6 +16,9 @@ html {
 
     @include media(sp) {
         font-size: 50%;
+        &,body {
+            height: 100%;
+        }
     }
 }
 body {
