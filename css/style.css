@@ -888,7 +888,7 @@ body {
   height: 100%; }
   .home__front > div {
     position: relative;
-    height: 100%; }
+    height: 100vh; }
 
 .home__text {
   color: #ffffff;
